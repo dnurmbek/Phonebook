@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/9c0475be57.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="heading" class="box">
+        <h1>
+            <i class="far fa-address-book"></i> PhoneBook
+        </h1>
+    </div>
+
+    <div class="box">
+        <form action="/" class="class" method="POST">
+            
+                    <input type="text" name="newContact" placeholder="Add contact name">
+                    <input type="text" name="newContactPhone" placeholder="Add contact phone">
+                    <button type="submit">Add contact</button>
+            
+        </form>
+</div>
+<div class="box">
+        
+            <table>
+                <tr>
+                    
+                    <th>Name</th>
+                    <th>Phone nr</td>
+                    <th></th>
+                </tr>
+                <% for(let i=0; i < contactBook.length; i++){ %>
+                    
+                    <tr>
+                        
+                        <td>
+                            <%= contactBook[i].contact.name %>
+                        </td>
+                        <td>
+                            <%= contactBook[i].contact.phone %>
+                        </td>
+                        <td>
+                            <form action="/delete" method="POST">
+                            <input type="hidden" name="hiddenName" value="<%= contactBook[i].contact.name %>">
+                            <input type="hidden" name="hiddenPhone" value="<%= contactBook[i].contact.phone %>">
+                            <button type="submit">Delete</button>
+                        </form>
+                        </td>
+
+                    </tr>
+
+                    <% } %>
+            </table>
+        
+    </div>
+    <br><br>
+
+
+    <footer>
+        <span>Donna N. &#169; 2021</span>
+    </footer>
+
+</body>
+
+</html>
